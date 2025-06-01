@@ -17,7 +17,7 @@ submit.addEventListener('click', async function(event) {
 	let realVal = delay.value *1000;  
 	
   if (textVal.length === 0 || delayVal <= 0 || isNaN(delayVal)) {
-    output.textContent = 'Please enter valid text and delay (>0).';
+    output.textContent = '';
     return;
   }
 
