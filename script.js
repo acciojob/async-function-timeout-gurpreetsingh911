@@ -18,7 +18,7 @@ submit.addEventListener('click', async function(event) {
   output.textContent = ''; // Clear output before delay
 
   if (textVal.length === 0 || delayVal <= 0 || isNaN(delayVal)) {
-    output.textContent = 'Please enter valid text and delay (>0).';
+    output.textContent = '';
     return;
   }
 
