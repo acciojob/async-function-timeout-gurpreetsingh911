@@ -8,16 +8,17 @@ event.preventDefault();
 
 	let textVal = text.value;
 	let delayVal = delay.value; 
+  let realVal = delay.value *1000; 
 	
+  
 	let promise = new Promise((resolve, reject) =>{
 		setTimeout(() => {
-			output.innerHTML = (`${textVal} - ${delayVal}`);
-			resolve();			
-		} delayVal); 
+    resolve(output.innerHTML = (`${textVal} - ${delayVal}`));
+					
+	}, realVal); 
 	
-	}
-
-							  
+	
+	
 		// if(textVal.length == 0 || delayVal <= 0) {
 		// 	output.innerHTML = `Hello`
 		// 	 reject();
