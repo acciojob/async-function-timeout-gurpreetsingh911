@@ -10,7 +10,7 @@ function wait(ms) {
 submit.addEventListener('click', async function(event) {
   event.preventDefault();
 
-	let textVal = text.value.trim();
+	let textVal = text.value.trim(); 
 	let delayVal = delay.value; 
 	let realVal = delay.value ;  
 	
@@ -21,7 +21,7 @@ submit.addEventListener('click', async function(event) {
 
   await wait(realVal);
 
-  output.textContent = `${textVal} - ${delayVal/1000}`;
+  output.textContent = `${textVal}`;
 });
 
 
