@@ -3,31 +3,26 @@ let delay = document.getElementById("delay");
 let submit = document.getElementById("btn");
 let output = document.getElementById("output");
 
-submit.addEventListener('click', function(event) {
-event.preventDefault();
+// Helper delay function returning a Promise
+function wait(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-	let textVal = text.value.trim();
-	let delayVal = delay.value; 
-	let realVal = delay.value *1000;  
-	
-  
-	let promise = new Promise((resolve, reject) =>{
-  if(textVal.length == 0 || delayVal <= 0) {
-  	setTimeout(() => {
-	   	output.innerHTML = ``
-      reject();
-      },0);
-      }
-      else{
-		setTimeout(() => {
-    let pass = (`${textVal} - ${delayVal}`);
-    resolve(output.textContent  = (pass));
-				
-	}, realVal); 
-	
-	}
-  
-	});
-	
-	
+submit.addEventListener('click', async function(event) {
+  event.preventDefault();
+
+  let textVal = text.value.trim();
+  let delayVal = Number(delay.value);
+  let realVal = delayVal * 1000; // converting seconds to ms if needed
+
+  output.textContent = ''; // Clear output before delay
+
+  if (textVal.length === 0 || delayVal <= 0 || isNaN(delayVal)) {
+    output.textContent = 'Please enter valid text and delay (>0).';
+    return;
+  }
+
+  await wait(realVal);
+
+  output.textContent = `${textVal} - ${delayVal}`;
 });
