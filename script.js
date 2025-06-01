@@ -12,18 +12,20 @@ event.preventDefault();
 	
   
 	let promise = new Promise((resolve, reject) =>{
+  if(textVal.length == 0 || delayVal <= 0) {
+  	setTimeout(() => {
+	   	output.innerHTML = ``
+      reject();
+      },0);
+      }
+      else{
 		setTimeout(() => {
     resolve(output.innerHTML = (`${textVal} - ${delayVal}`));
 					
 	}, realVal); 
 	
-	
-	
-		// if(textVal.length == 0 || delayVal <= 0) {
-		// 	output.innerHTML = `Hello`
-		// 	 reject();
-		// }
-		
+	}
+  
 	});
 	
 	
