@@ -7,14 +7,12 @@ function wait(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-
-
 submit.addEventListener('click', async function(event) {
   event.preventDefault();
 
 	let textVal = text.value.trim();
 	let delayVal = delay.value; 
-	let realVal = delay.value *1000;  
+	let realVal = delay.value ;  
 	
   if (textVal.length === 0 || delayVal <= 0 || isNaN(delayVal)) {
     output.textContent = '';
@@ -23,7 +21,7 @@ submit.addEventListener('click', async function(event) {
 
   await wait(realVal);
 
-  output.textContent = `${textVal} - ${delayVal}`;
+  output.textContent = `${textVal} - ${delayVal/1000}`;
 });
 
 
