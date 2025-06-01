@@ -6,7 +6,7 @@ let output = document.getElementById("output");
 submit.addEventListener('click', function(event) {
 event.preventDefault();
 
-	let textVal = text.value;
+	let textVal = text.value.trim();
 	let delayVal = delay.value; 
   let realVal = delay.value *1000; 
 	
@@ -20,8 +20,8 @@ event.preventDefault();
       }
       else{
 		setTimeout(() => {
-    resolve(output.innerHTML = (`${textVal} - ${delayVal}`));
-					
+    resolve(output.innerHTML = (`${textVal} -${delayVal}`));
+				
 	}, realVal); 
 	
 	}
